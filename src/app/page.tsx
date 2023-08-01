@@ -1,35 +1,20 @@
 "use client";
 
-import {
-  useGetItemGroupsQuery,
-  useGetItemListQuery,
-} from "@/store/features/dashboard/items/api";
+import { styled } from "styled-components";
+import ItemGroup from "./dashboard/components/itemGroup/ItemGroup";
+import Item from "./dashboard/components/items/Item";
+
+const HomeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 
 export default function Home() {
-  const { data, isLoading, error } = useGetItemGroupsQuery("");
-  const {
-    data: items,
-    isLoading: itemsLoading,
-    error: itemsError,
-  } = useGetItemListQuery("");
-
-  let itemGroups;
-
-  if (isLoading) return <>Loading</>;
-
-  if (data) {
-    itemGroups = data;
-  }
-
-  if (error) {
-    return <p>{error.toString()}</p>;
-  }
-
   return (
-    <>
-      {itemGroups.map((itemGroup: any, index: number) => {
-        return <p key={index}>{itemGroup.name}</p>;
-      })}
-    </>
+    <HomeWrapper>
+      <ItemGroup />
+      <Item />
+    </HomeWrapper>
   );
 }

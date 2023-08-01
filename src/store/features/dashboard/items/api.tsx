@@ -5,13 +5,23 @@ const baseQuery = fetchBaseQuery({ baseUrl: baseUrl });
 
 export const dashboardApi = createApi({
   baseQuery,
+  reducerPath: "dashboardApi",
   endpoints: (build) => ({
+    /**
+     * Get items list
+     * @param {any} {query:(
+     * @returns {any}
+     */
     getItemList: build.query<any, string>({ query: () => endpoints.items }),
+    /**
+     * Get Item Groups
+     * @param {any} {query:(
+     * @returns {any}
+     */
     getItemGroups: build.query<any, string>({
       query: () => endpoints.itemGroups,
     }),
   }),
-  reducerPath: "dashboardApi",
 });
 
 export const { useGetItemListQuery, useGetItemGroupsQuery } = dashboardApi;
