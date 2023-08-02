@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({ baseUrl: baseUrl });
 
+// Client side data caching using Redux RTX Query
 export const dashboardApi = createApi({
   baseQuery,
   reducerPath: "dashboardApi",
