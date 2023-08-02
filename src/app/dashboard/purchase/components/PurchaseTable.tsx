@@ -12,16 +12,24 @@ export default function PurchaseTable() {
     {
       title: "Po No",
       dataIndex: "poNo",
-      sorter: {
-        compare: (a: any, b: any) => a.poNo - b.poNo,
-        multiple: 3,
-      },
     },
     { title: "Po Date", dataIndex: "poDate" },
     { title: "Arrival Date", dataIndex: "arrivalDate" },
     { title: "Supplier", dataIndex: "supplierAgentName" },
-    { title: "Quantity", dataIndex: "quantity" },
-    { title: "Amount", dataIndex: "netAmount" },
+    {
+      title: "Quantity",
+      dataIndex: "quantity",
+      sorter: {
+        compare: (a: any, b: any) => a.quantity - b.quantity,
+      },
+    },
+    {
+      title: "Amount",
+      dataIndex: "netAmount",
+      sorter: {
+        compare: (a: any, b: any) => a.netAmount - b.netAmount,
+      },
+    },
   ];
 
   return (
